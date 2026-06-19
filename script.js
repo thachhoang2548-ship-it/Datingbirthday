@@ -314,31 +314,28 @@ document.addEventListener('DOMContentLoaded', () => {
         triggerSuccessCelebration();
     });
 
-    // --- SUBMIT RSVP FUNCTION ---
-    function submitRsvp() {
-        if (rsvpSent) return;
-        rsvpSent = true;
-        const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
-        sendRsvpNotification(dresscodeVal);
-    }
-
-    // --- SEND DRESSCODE BUTTON ---
+    // --- SEND DRESSCODE & RSVP ---
     if (btnSendDresscode) {
         btnSendDresscode.addEventListener('click', () => {
-            submitRsvp();
+            if (rsvpSent) return;
+            rsvpSent = true;
+
+            const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
+            sendRsvpNotification(dresscodeVal);
+
             btnSendDresscode.innerHTML = "Đã gửi! ✓";
             btnSendDresscode.style.background = "#28a745"; // Green success color
             btnSendDresscode.style.borderColor = "#28a745";
             btnSendDresscode.disabled = true;
+
             setTimeout(() => {
                 successModal.classList.add('hidden');
             }, 800);
         });
     }
 
-    // --- CLOSE MODAL & FINAL CONFIRM ---
+    // --- CLOSE MODAL ONLY (CHỐT KÈO) ---
     btnCloseModal.addEventListener('click', () => {
-        submitRsvp(); // Ensure RSVP is sent even if she clicks the bottom close button directly
         successModal.classList.add('hidden');
     });
 });
