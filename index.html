@@ -120,23 +120,10 @@
 
             <!-- RSVP Question Section -->
             <section class="rsvp-section glass-card">
-                <!-- State 1: RSVP Question -->
-                <div id="rsvpStateQuestion" class="rsvp-state active">
-                    <h2 class="rsvp-question">Bé có đồng ý đi sinh nhật cùng anh không ạ? 🥺</h2>
-                    <div class="rsvp-buttons">
-                        <button id="btnYes" class="btn btn-yes">Đồng ý luôn! 💖</button>
-                        <button id="btnNo" class="btn btn-no">Không đi đâu 😜</button>
-                    </div>
-                </div>
-
-                <!-- State 2: Dresscode Input (Hidden initially) -->
-                <div id="rsvpStateDresscode" class="rsvp-state hidden">
-                    <h2 class="rsvp-question">Anh biết ngay mà! 🥰</h2>
-                    <div class="dresscode-container">
-                        <label for="dresscodeInput" class="dresscode-label">Dresscode của em hôm đó là màu gì để anh phối đồ cùng nè? 👗✨</label>
-                        <input type="text" id="dresscodeInput" class="dresscode-input" placeholder="Ví dụ: Váy trắng, Đầm hồng... (không bắt buộc)">
-                    </div>
-                    <button id="btnConfirmDresscode" class="btn btn-yes">Gửi cho anh & Chốt lịch nhé! 💌</button>
+                <h2 class="rsvp-question">Bé có đồng ý đi sinh nhật cùng anh không ạ? 🥺</h2>
+                <div class="rsvp-buttons">
+                    <button id="btnYes" class="btn btn-yes">Đồng ý luôn! 💖</button>
+                    <button id="btnNo" class="btn btn-no">Không đi đâu 😜</button>
                 </div>
             </section>
         </div>
@@ -152,6 +139,13 @@
                 <p>📍 <strong>Địa điểm:</strong> Chamie Steak</p>
                 <p>⏰ <strong>Thời gian đón:</strong> 17:00 - Chủ Nhật (21/06)</p>
             </div>
+
+            <!-- Dresscode Input Field inside Success Modal -->
+            <div class="dresscode-container" style="margin: 20px auto 15px auto;">
+                <label for="dresscodeInput" class="dresscode-label">Dresscode của em hôm đó là màu gì để anh phối đồ cùng nè? 👗✨</label>
+                <input type="text" id="dresscodeInput" class="dresscode-input" placeholder="Ví dụ: Váy trắng, Đầm hồng... (không bắt buộc)">
+            </div>
+
             <p class="sweet-note">Chuẩn bị lên đồ rồi 17h Chủ Nhật anh qua đón nhé! 😎</p>
             <button id="btnCloseModal" class="btn btn-close">Hẹn Chủ Nhật nha! 👍</button>
         </div>

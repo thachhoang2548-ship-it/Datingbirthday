@@ -36,9 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNo = document.getElementById('btnNo');
     const btnCloseModal = document.getElementById('btnCloseModal');
     const dresscodeInput = document.getElementById('dresscodeInput');
-    const rsvpStateQuestion = document.getElementById('rsvpStateQuestion');
-    const rsvpStateDresscode = document.getElementById('rsvpStateDresscode');
-    const btnConfirmDresscode = document.getElementById('btnConfirmDresscode');
 
     // --- SEND RSVP NOTIFICATION ---
     function sendRsvpNotification(dresscode) {
@@ -307,35 +304,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     btnYes.addEventListener('click', () => {
-        // Transition to Dresscode state
-        rsvpStateQuestion.classList.remove('active');
-        rsvpStateQuestion.classList.add('hidden');
+        // Show success modal immediately
+        successModal.classList.remove('hidden');
 
-        rsvpStateDresscode.classList.remove('hidden');
-        rsvpStateDresscode.classList.add('active');
-
-        // Trigger initial soft burst of confetti to celebrate "Yes"
-        triggerInitialCelebration();
+        // Trigger large explosion of confetti
+        triggerSuccessCelebration();
     });
 
-    if (btnConfirmDresscode) {
-        btnConfirmDresscode.addEventListener('click', () => {
-            // Show success modal
-            successModal.classList.remove('hidden');
-
-            // Trigger large explosion of confetti
-            triggerSuccessCelebration();
-
-            // Get dresscode input value
-            const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
-
-            // Send confirmation notification to you
-            sendRsvpNotification(dresscodeVal);
-        });
-    }
-
-    // --- CLOSE MODAL ---
+    // --- CLOSE MODAL & SEND RSVP ---
     btnCloseModal.addEventListener('click', () => {
+        // Get dresscode input value when confirming
+        const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
+
+        // Send confirmation notification to you
+        sendRsvpNotification(dresscodeVal);
+
+        // Hide success modal
         successModal.classList.add('hidden');
     });
 });
