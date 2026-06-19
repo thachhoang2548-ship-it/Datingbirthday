@@ -32,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelopeSection = document.getElementById('envelopeSection');
     const mainContent = document.getElementById('mainContent');
     const successModal = document.getElementById('successModal');
-    const bgMusic = document.getElementById('bgMusic');
-    const musicToggle = document.getElementById('musicToggle');
     const btnYes = document.getElementById('btnYes');
     const btnNo = document.getElementById('btnNo');
     const btnCloseModal = document.getElementById('btnCloseModal');
@@ -108,9 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add class to play CSS animations (flap opens, letter slides up)
         envelopeWrapper.classList.add('open');
 
-        // Play music (browser allows audio playback after click/user interaction)
-        playMusic();
-
         // Wait for envelope animations to finish (approx 1.2s), then reveal main content
         setTimeout(() => {
             envelopeSection.classList.add('hidden');
@@ -118,9 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             mainContent.classList.remove('hidden');
             mainContent.classList.add('active');
-
-            // Show music button
-            musicToggle.classList.remove('hidden');
 
             // Trigger a soft initial confetti burst to celebrate
             triggerInitialCelebration();
@@ -134,28 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     envelope.addEventListener('click', openEnvelope);
 
-    // --- MUSIC CONTROLS ---
-    function playMusic() {
-        bgMusic.play()
-            .then(() => {
-                musicToggle.classList.add('playing');
-            })
-            .catch(err => {
-                console.log("Auto-play blocked or audio failed:", err);
-            });
-    }
 
-    function toggleMusic() {
-        if (bgMusic.paused) {
-            bgMusic.play();
-            musicToggle.classList.add('playing');
-        } else {
-            bgMusic.pause();
-            musicToggle.classList.remove('playing');
-        }
-    }
-
-    musicToggle.addEventListener('click', toggleMusic);
 
     // --- FLOATING HEARTS CANVAS ANIMATION ---
     const canvas = document.getElementById('heartCanvas');
