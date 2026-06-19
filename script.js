@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNo = document.getElementById('btnNo');
     const btnCloseModal = document.getElementById('btnCloseModal');
     const dresscodeInput = document.getElementById('dresscodeInput');
+    const rsvpStateQuestion = document.getElementById('rsvpStateQuestion');
+    const rsvpStateDresscode = document.getElementById('rsvpStateDresscode');
+    const btnConfirmDresscode = document.getElementById('btnConfirmDresscode');
 
     // --- SEND RSVP NOTIFICATION ---
     function sendRsvpNotification(dresscode) {
@@ -304,18 +307,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     btnYes.addEventListener('click', () => {
-        // Show success modal
-        successModal.classList.remove('hidden');
+        // Transition to Dresscode state
+        rsvpStateQuestion.classList.remove('active');
+        rsvpStateQuestion.classList.add('hidden');
 
-        // Trigger large explosion of confetti
-        triggerSuccessCelebration();
+        rsvpStateDresscode.classList.remove('hidden');
+        rsvpStateDresscode.classList.add('active');
 
-        // Get dresscode input value
-        const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
-
-        // Send confirmation notification to you
-        sendRsvpNotification(dresscodeVal);
+        // Trigger initial soft burst of confetti to celebrate "Yes"
+        triggerInitialCelebration();
     });
+
+    if (btnConfirmDresscode) {
+        btnConfirmDresscode.addEventListener('click', () => {
+            // Show success modal
+            successModal.classList.remove('hidden');
+
+            // Trigger large explosion of confetti
+            triggerSuccessCelebration();
+
+            // Get dresscode input value
+            const dresscodeVal = dresscodeInput ? dresscodeInput.value.trim() : '';
+
+            // Send confirmation notification to you
+            sendRsvpNotification(dresscodeVal);
+        });
+    }
 
     // --- CLOSE MODAL ---
     btnCloseModal.addEventListener('click', () => {
