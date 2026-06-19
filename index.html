@@ -144,8 +144,11 @@
             <div class="dresscode-container" style="margin: 20px auto 15px auto;">
                 <label for="dresscodeInput" class="dresscode-label">Dresscode của em hôm đó là màu gì để anh phối đồ
                     cùng nè? 👗✨</label>
-                <input type="text" id="dresscodeInput" class="dresscode-input"
-                    placeholder="Ví dụ: Váy trắng, Đầm hồng... (không bắt buộc)">
+                <div class="dresscode-input-group" style="display: flex; gap: 8px; width: 100%; margin-top: 8px;">
+                    <input type="text" id="dresscodeInput" class="dresscode-input"
+                        placeholder="Ví dụ: Váy trắng, Đầm hồng... (không bắt buộc)">
+                    <button id="btnSendDresscode" class="btn btn-send-dresscode" style="padding: 12px 20px; border-radius: 12px; background: var(--primary-pink); border: 1px solid rgba(255, 42, 95, 0.4); color: white; cursor: pointer; white-space: nowrap; font-weight: 600; font-family: var(--font-body); font-size: 0.9rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 4px;">Gửi 💌</button>
+                </div>
             </div>
 
             <p class="sweet-note">Chuẩn bị lên đồ rồi 17h Chủ Nhật anh qua đón nhé! 😎</p>

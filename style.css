@@ -763,6 +763,15 @@ body {
     transform: scale(1);
 }
 
+.btn-send-dresscode:hover {
+    background: #ff4a7d !important;
+    box-shadow: 0 0 12px rgba(255, 42, 95, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-send-dresscode:active {
+    transform: translateY(0);
+}
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (min-width: 480px) {
